@@ -8,24 +8,24 @@ public class TDCarManager : MonoBehaviour {
 
     void Start()
     {
-        RegisterClickEventHandler();
+        //RegisterClickEventHandler();
     }
 
-    void RegisterClickEventHandler()
-    {
-        foreach (GameObject go in cars)
-        {
-            UIEventListener.Get(go).onClick = ClickCarEventHandler;
-        }
-    }
+    //void RegisterClickEventHandler()
+    //{
+    //    foreach (GameObject go in cars)
+    //    {
+    //        UIEventListener.Get(go).onClick = ClickCarEventHandler;
+    //    }
+    //}
 
-    private void ClickCarEventHandler(GameObject target)
-    {
-        Debug.LogError(target.name);
-        if (UIManager.m_Instance != null)
-        {
-            UIManager.m_Instance.TopTransformMoveOut();
-            UIManager.m_Instance.BomTransformMoveOut();
-        }
-    }
+    //private void ClickCarEventHandler(GameObject target)
+    //{
+    //    Debug.LogError(target.name);
+    //    if (UIManager.m_Instance != null)
+    //    {
+    //        UIManager.m_Instance.TopTransformMoveOut();
+    //        UIManager.m_Instance.BomTransformMoveOut();
+    //    }
+    //}
 }

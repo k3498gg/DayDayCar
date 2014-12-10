@@ -3,13 +3,12 @@ using System.Collections;
 
 public class TDCameraController : MonoBehaviour {
     public GameObject target;
+    public float delate = 1.0f;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void FixedUpdate () {
-        transform.LookAt(target.transform);
+        transform.RotateAround(target.transform.position, Vector3.up, delate * Time.deltaTime);
+       //transform.Translate(transform.forward*Time.deltaTime);
 	}
+	
+
 }

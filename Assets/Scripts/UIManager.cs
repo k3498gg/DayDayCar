@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     public UISprite topSprite;
     public UISprite bomSprite;
     public UISprite btnBackSprite;
+    public GameObject bgColliderObj;
 
     private Vector3 m_TopPos = Vector3.zero;
     private Vector3 m_BomPos = Vector3.zero;
@@ -24,9 +25,22 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UIEventListener.Get(btnBackSprite.gameObject).onClick = UIBackShow;
+        UIEventListener.Get(bgColliderObj.gameObject).onDrag = UIDrag;
+        UIEventListener.Get(bgColliderObj.gameObject).onClick = UIOnClick;
         m_TopPos = topSprite.transform.localPosition;
         m_BomPos = bomSprite.transform.localPosition;
         m_BackBtnPos = btnBackSprite.transform.localPosition;
+    }
+
+    private void UIDrag(GameObject target, Vector2 delate)
+    {
+        Debug.Log("delate" + delate);
+    }
+
+    private void UIOnClick(GameObject target)
+    {
+        TopTransformMoveOut();
+        BomTransformMoveOut();
     }
 
     private void UIBackShow(GameObject target)
